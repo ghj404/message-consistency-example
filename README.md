@@ -65,6 +65,8 @@ mvn clean compile
 mvn spring-boot:run
 ```
 
+项目启动后，访问 http://localhost:8080
+
 ## 功能演示
 
 ### 1. 注解式消息一致性

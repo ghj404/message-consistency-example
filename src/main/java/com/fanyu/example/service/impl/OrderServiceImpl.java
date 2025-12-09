@@ -49,10 +49,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     @MessageConsistency(
-            exchange = ORDER_EXCHANGE,
+            destination = ORDER_EXCHANGE,
             routingKey = ORDER_CREATED_ROUTING_KEY,
             messageType = "ORDER_CREATED",
-            businessKeyExpression = "#order.orderNo"
+            businessKey = "#order.orderNo"
     )
     public OrderVO createOrderWithAnnotation(CreateOrderRequest request) {
         log.info("开始创建订单（注解式），用户ID: {}, 商品: {}", request.getUserId(), request.getProductName());
